@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://bvkas351yk7th"]
+
+[ext_resource type="Script" path="res://Finite State Machine/StateMachine.cs" id="1_eglhm"]
+[ext_resource type="Script" path="res://Finite State Machine/State_1.cs" id="2_wb4ds"]
+[ext_resource type="Script" path="res://Finite State Machine/State_2.cs" id="3_xy7pr"]
+[ext_resource type="Script" path="res://Finite State Machine/State_3.cs" id="4_hv67t"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x7qgv"]
+
+[node name="Basic Finite State Machine" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_x7qgv")
+
+[node name="FSM" type="Node" parent="."]
+script = ExtResource("1_eglhm")
+initial_state = NodePath("Node_1")
+
+[node name="Node_1" type="Node" parent="FSM"]
+script = ExtResource("2_wb4ds")
+
+[node name="Node_2" type="Node" parent="FSM"]
+script = ExtResource("3_xy7pr")
+
+[node name="Node_3" type="Node" parent="FSM"]
+script = ExtResource("4_hv67t")

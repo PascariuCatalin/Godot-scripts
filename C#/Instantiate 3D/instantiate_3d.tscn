@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqps4n7h6c1pv"]
+
+[ext_resource type="Script" path="res://Instantiate 3D/Instantiate3d.cs" id="1_8p5tm"]
+[ext_resource type="PackedScene" uid="uid://d0daxi1cb5t1y" path="res://Instantiate 3D/object_to_be_instantiated.tscn" id="2_rhvxf"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_hylf0"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_vekrb"]
+
+[node name="Instantiate3D" type="Node3D" node_paths=PackedStringArray("Object_Spawn")]
+script = ExtResource("1_8p5tm")
+Object_to_be_instantiated = ExtResource("2_rhvxf")
+Object_Spawn = NodePath("Node3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.525565, -1.25016)
+mesh = SubResource("CapsuleMesh_hylf0")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 2, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("BoxMesh_vekrb")
+
+[node name="Node3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.551684, -2.91726)
