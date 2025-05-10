@@ -83,8 +83,9 @@ public partial class LookAtMouse : Node3D
         {
             // gets the position where ray hits the ground
             Vector3 ray_coordinates = (Vector3)result["position"];
-
+	
             // aplies the character position (Position.Y), stops the character from rotating on Y axis
+	    // Depending on the case GlobalPosition.Y needs to be used
             Vector3 modified_ray_coordinates = new Vector3(ray_coordinates.X, Position.Y, ray_coordinates.Z);
 
             // looks at the position
