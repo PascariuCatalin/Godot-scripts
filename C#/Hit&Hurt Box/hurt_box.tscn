@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://bno6b0auwei5t"]
+
+[ext_resource type="Script" path="res://Hit&Hurt Box/HurtBox.cs" id="1_7gg48"]
+[ext_resource type="Texture2D" uid="uid://cvdpo0rammbv" path="res://Textures/Purple/texture_03.png" id="2_kht8k"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mh1wy"]
+albedo_texture = ExtResource("2_kht8k")
+
+[sub_resource type="BoxMesh" id="BoxMesh_nves4"]
+material = SubResource("StandardMaterial3D_mh1wy")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_stx7y"]
+
+[node name="hurt-box" type="Node3D"]
+script = ExtResource("1_7gg48")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_nves4")
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_stx7y")
+
+[connection signal="area_entered" from="Area3D" to="." method="OnArea3dAreaEntered"]
